@@ -419,3 +419,68 @@ const api = {
         return {name: 'it-porno'}
     }
 }
+//=================================================================================================
+//пример
+const p = new Promise(function (res, rej) {
+    setTimeout(() => {
+        console.log('Prep data...');
+        const backendData = {//Что бы получить доступ к этим данным, для этого и существует fn res, rej
+            //res вызывается когда асинхронная операция закончилась успешно
+            server: 'aws',
+            port: 2000,
+            status: 'work',
+        }
+        res(backendData);//Говорим promise что он завершил своё выполнение
+    }, 2000);
+})
+//p - является промисом
+p.then((data /*- это backendData*/) => {//ЧТо бы получить доступ к backendData нужно зарезолвить res(backendData)
+//Повторим асинхронную операцию
+    /*const p2 = - вместо того что б создавать переменную, можно просто вернуть promise*/
+    return new Promise((res) => {
+        setTimeout(() => {
+            data.mod = true;
+            res(data);//Сообщаем Promise что он совершился и передаем обьект
+        }, 2000)
+    })
+    //Если просто возвращаем новый promise без переменной, то следующий код не нужен
+    // p2.then(modData=>{
+    //     console.log(modData)
+    // })
+    //Теперь после метода then мы можем снова вызвать метод then, чейнить(цепь)
+})
+    .then((modData) => {
+        modData.fromPr = true;
+        return modData;
+    })
+    .then(data => {
+        console.log(data);
+    })
+    //Ошибки================
+    .catch(err => console.error(err))
+    //Будет вызывать независимо
+    .finally(()=>console.log('Fin'));
+
+//Возможности
+//Cоздание промиса функции setTimeout и пользоваться можно много раз
+const sleep = ms => {
+    return new Promise(res=>{
+        setTimeout(()=>res(),ms)
+    })
+}
+
+sleep(2000).then(()=>console.log('2 s'))
+sleep(3000).then(()=>console.log('3 s'))
+
+//Глобальные методы
+//     Promise.all()
+Promise.all([sleep(2000), sleep(5000)])
+    .then(()=>{//Будет выполнен только тогда, когда зарезолвятся все в массиве
+        console.log('all')
+    })
+
+Promise.race([sleep(2000), sleep(5000)])
+    .then(()=>{//Принимает набор промисов и отрабатывает сразу как только хотя бы один промис зарезол
+        console.log('race')
+    })
+
