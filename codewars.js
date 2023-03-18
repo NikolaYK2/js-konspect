@@ -515,7 +515,44 @@
 //     return newArray;
 // }
 
+//Про сперму =================================================
+// function chromosomeCheck(sperm) {
+//     let b = sperm.toLowerCase();
+//     return b === sperm.replace(/y/gi).toLowerCase() ? "Congratulations! You're going to have a daughter."
+//         : b === sperm.replace(/xx/gi).toLowerCase() ? "Congratulations! You're going to have a son." : "";
+//
+// }
+// let a = chromosomeCheck('yX')
+// console.log(a)
 
+//Максимально сократить код
+// function find(array, element) {
+//     for (let i =0; i < array.length; i++) {
+//         if(array[i] === element) return  i;
+//     }
+//     return "Not found";
+//
+// }
+// let a = find(['a', 'b', 'c'], 'b');
+// console.log(a);
+// //сокращенная запись
+// const find = (a, x) => (x = a.indexOf(x)) < 0 ? 'Not found' : x
 
-
-
+// TODO: Refactor and shorten the function
+// // function describeAge(age) {
+// //     if (age <= 12) {
+// //         return "You're a(n) kid";
+// //     } else if (age >= 13 && age <= 17) {
+// //         return "You're a(n) teenager";
+// //     } else if (age >= 18 && age <= 64) {
+// //         return "You're a(n) adult";
+// //     } else {
+// //         return "You're a(n) elderly";
+// //     }
+// // }
+// let b = 'You\'re a(n) '
+// const describeAge=(age)=>{return age<=12?`${b}kid`:age>=13&&age<=17?`${b}teenager`:age>=18&&age<=64?`${b}adult`:`${b}elderly`}
+// let a = describeAge(14);
+// console.log(a);
+// //можно было  бы в строке делать логику
+// "You're a(n) " + (age < 13 ? "kid" : age < 18 ? "teenager" : age < 65 ? "adult" : "elderly")
