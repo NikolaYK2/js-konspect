@@ -320,8 +320,7 @@ const user ={
     students:['Hanna', 'Alex'],
 
     showGroup(){
-        this.students.forEach( function (student){//выпрыгивает во внешний контенкст функцию, а тут this user
-            //так как user.showGroup();
+        this.students.forEach( function (student){
             console.log(this.group + ' ' + student);
         }).bind(this);//тоже будет user
     }
