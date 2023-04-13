@@ -556,3 +556,39 @@
 // console.log(a);
 // //можно было  бы в строке делать логику
 // "You're a(n) " + (age < 13 ? "kid" : age < 18 ? "teenager" : age < 65 ? "adult" : "elderly")
+
+//УМножение символа ============
+// function contamination(text, char) {
+//     // Code here ;)
+//     let result = '';
+//     if (text === '' || char === '' || text === undefined || char === undefined) {
+//         return '';
+//     } else if (char !== '') {
+//         for (let i = 0; i < text.length; i++) {
+//             result += char;
+//         }
+//         return result;
+//     }
+// }
+// let a = contamination('!!!!!', '&');
+// console.log(a);
+
+//Обьем куба =========================================
+// let cubeChecker = function (volume, side) {
+//     if (volume === side**3 && volume > 0 && side > 0) {
+//         return true;
+//     } else if(volume <=0 && side<=0){
+//         return false;
+//     }
+//     return false;
+// };
+// console.log(cubeChecker(56.3, 1));
+
+// const as=(az)=>{
+//     let p = az**3;
+//     return (qw)=>{
+//         return  p + qw;
+//     };
+// }
+// const a = as(2);
+// console.log(a(3));
