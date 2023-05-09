@@ -138,13 +138,7 @@
 // //10. Nick женился. Выполните соответствующие преобразование массива students (map)
 // // let studentsWithMarriedNick;
 // // name === nik
-// // {...
-// //     el, isMerit
-// // :
-// //     true
-// // }
-// // :
-// // el
+// // {...el, isMerit: true}:el
 // // console.log(studentsWithMarriedNick)
 // let studentsWithMarriedNick = trueStudents.map(st => st.name === 'Nick' ? {...st, isMarried: true} : st);
 // console.log(studentsWithMarriedNick)
@@ -374,75 +368,75 @@
 // console.log(man6FullCopy.mother.parents[0].favoriteDish.title);
 
 //10 Array of objects inside an object -> object -> array -> object ->  object
-let man7 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: "Kate",
-        age: 50,
-        work: {
-            position: "doctor",
-            experience: 15
-        },
-        parents: [
-            {
-                name: "Kevin",
-                age: 80,
-                favoriteDish: {
-                    title: "borscht",
-                    ingredients: [
-                        {title: "beet", amount: 3},
-                        {title: "potatoes", amount: 5},
-                        {title: "carrot", amount: 1},
-                    ]
-                }
-            },
-            {
-                name: "Jennifer",
-                age: 78,
-                favoriteDish: {
-                    title: "sushi",
-                    ingredients: [
-                        {title: "fish", amount: 1},
-                        {title: "rise", amount: 0.5}
-                    ]
-                }
-            },
-        ]
-    }
-};
-
-let man7FullCopy = {...man7,
-    mother: {...man7.mother,
-        work: {...man7.mother.work},
-        parents: [...man7.mother.parents.map(e => ({...e,
-            favoriteDish: {
-                ...man7.mother.parents.favoriteDish,
-                ingredients: [...e.favoriteDish.ingredients.map(el => ({...el}))]
-            }
-        }))]
-    }
-}  //  your code
-
-console.log(man7 === man7FullCopy);
-
-man7FullCopy.mother.name = 'huy';
-man7FullCopy.mother.work.position = 'Nahuy';
-man7FullCopy.mother.parents[0].name = 'netu';
-man7FullCopy.mother.parents[0].favoriteDish.title = 'Eeeee';
-man7FullCopy.mother.parents[0].favoriteDish.ingredients[0].title = 'Pizda';
-
-console.log(man7.mother.name);
-console.log(man7.mother.work.position);
-console.log(man7.mother.parents[0].name);
-console.log(man7.mother.parents[0].favoriteDish.title);
-console.log(man7.mother.parents[0].favoriteDish.ingredients[0].title);
-
-console.log(man7FullCopy.mother.name);
-console.log(man7FullCopy.mother.work.position);
-console.log(man7FullCopy.mother.parents[0].name);
-console.log(man7FullCopy.mother.parents[0].favoriteDish.title);
-console.log(man7FullCopy.mother.parents[0].favoriteDish.ingredients[0].title);
+// let man7 = {
+//     name: 'John',
+//     age: 28,
+//     mother: {
+//         name: "Kate",
+//         age: 50,
+//         work: {
+//             position: "doctor",
+//             experience: 15
+//         },
+//         parents: [
+//             {
+//                 name: "Kevin",
+//                 age: 80,
+//                 favoriteDish: {
+//                     title: "borscht",
+//                     ingredients: [
+//                         {title: "beet", amount: 3},
+//                         {title: "potatoes", amount: 5},
+//                         {title: "carrot", amount: 1},
+//                     ]
+//                 }
+//             },
+//             {
+//                 name: "Jennifer",
+//                 age: 78,
+//                 favoriteDish: {
+//                     title: "sushi",
+//                     ingredients: [
+//                         {title: "fish", amount: 1},
+//                         {title: "rise", amount: 0.5}
+//                     ]
+//                 }
+//             },
+//         ]
+//     }
+// };
+//
+// let man7FullCopy = {...man7,
+//     mother: {...man7.mother,
+//         work: {...man7.mother.work},
+//         parents: [...man7.mother.parents.map(e => ({...e,
+//             favoriteDish: {
+//                 ...man7.mother.parents.favoriteDish,
+//                 ingredients: [...e.favoriteDish.ingredients.map(el => ({...el}))]
+//             }
+//         }))]
+//     }
+// }  //  your code
+//
+// console.log(man7 === man7FullCopy);
+//
+// man7FullCopy.mother.name = 'huy';
+// man7FullCopy.mother.work.position = 'Nahuy';
+// man7FullCopy.mother.parents[0].name = 'netu';
+// man7FullCopy.mother.parents[0].favoriteDish.title = 'Eeeee';
+// man7FullCopy.mother.parents[0].favoriteDish.ingredients[0].title = 'Pizda';
+//
+// console.log(man7.mother.name);
+// console.log(man7.mother.work.position);
+// console.log(man7.mother.parents[0].name);
+// console.log(man7.mother.parents[0].favoriteDish.title);
+// console.log(man7.mother.parents[0].favoriteDish.ingredients[0].title);
+//
+// console.log(man7FullCopy.mother.name);
+// console.log(man7FullCopy.mother.work.position);
+// console.log(man7FullCopy.mother.parents[0].name);
+// console.log(man7FullCopy.mother.parents[0].favoriteDish.title);
+// console.log(man7FullCopy.mother.parents[0].favoriteDish.ingredients[0].title);
 
 
 

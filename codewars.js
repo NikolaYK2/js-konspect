@@ -592,3 +592,38 @@
 // }
 // const a = as(2);
 // console.log(a(3));
+
+// 3Например, если задано неотрицательное целое число, верните строку с бормотанием: "1 sheep...2 sheep...3 sheep...".
+// Ввод всегда будет действительным, т.е. отрицательных целых чисел не будет.
+// var countSheep = function (num){
+//     //your code here
+//     let result = '';
+//     for (let i = 1; i <= num; i++){
+//         result += `${i} sheep...`
+//     }
+//     return result;
+// }
+// console.log(countSheep(3));
+
+//Смена светафора последовательная
+// function updateLight(current) {
+//     //your code here!
+//     if (current === 'green'){
+//         return 'yellow'
+//     } else if (current === 'yellow'){
+//         return 'red'
+//     } else if (current === 'red'){
+//         return 'green'
+//     }
+// }
+// console.log(updateLight('red'))
+
+//Индекс массы тела
+// function bmi(weight, height) {
+//     let result = weight / height**2;
+//     return result <= 18.5 ? 'Underweight' :
+//         result <= 25.0 ? 'Normal' :
+//             result <= 30.0 ? 'Overweight' :
+//                 result > 30 ? 'Obese' : '';
+// }
+// console.log(bmi(85, 18.5))

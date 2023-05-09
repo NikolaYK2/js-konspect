@@ -12,26 +12,28 @@
 //1 - В глобал будет window, в node global
 
 //2 - ()=> берет всегда This из внешнего LE игнорируя любые правила
-//this - надет глобально
+//this - найдет глобально
 // const a = () => {
 //     console.log(this);
 // }
 // a();
-//
+// -------------------------------------------------
 // function foo() {
 // //this - ? возьмет сначала отсюда
 //     const a = () => {
 //         console.log(this);
 //     }
+//     return a();
 // }
-//
+// foo();
+// --------------------------------
 // const us = {
 //     sw: () => {
 //         console.log(this);//this - Будет global так как обьект us не имеет своего LE
 //     }
 // }
 // us.sw();
-//
+// --------------------------------
 // const us = {
 //     sw() {
 //         //this = us
@@ -42,12 +44,11 @@
 //     }
 // }
 // us.sw();
-//
+// ------------------------------------------
 // function a(){
 //     console.log(this);//this = undefined 'use strict'-> window '!use strict'
 // }
 // a();//место вызова и this это то что слева от точки
-//
 // // age = 'glob' - так мы увидем win.age = global
 // const us={
 //     age:23,
@@ -56,7 +57,7 @@
 //     }
 // }
 // us.sh();
-//
+// -----------------------------------------
 // const us={
 //     age:23,
 //     sh(){
@@ -64,7 +65,7 @@
 //     }
 // }
 // us.sh();//как всегда обращаем внимание на вызов
-//
+// -------------------------------------------
 // let us={
 //     age:23,
 //     sh(){
@@ -74,8 +75,8 @@
 // const newU = us;
 // us = null;//вот для этого нужен this, в случаи если кто-то сотрет ссылку на obj us
 // newU.sh();
-//
-//как можно метод к обьекту добавить
+// -------------------------------
+//как можно метод к обьекту добавить ------------------------
 // let us1 = {
 //     age: 25
 // }
@@ -94,8 +95,8 @@
 // us1.f();//Вызвать fn можно в контексте этого обьекта /this -это контекст вызова
 // us2.f();
 
-//3 - методы fn привязывают контекст / первым аргументом принимают контекст
-// имеет преимущество перед первым и вторым методами(global, и через точку)-----------------------------------------------------------
+//3 - методы fn привязывают контекст / первым аргументом принимают контекст ======================================
+// имеет преимущество перед первым и вторым методами(global, и через точку)------------------------------------------
 //методы call, aplly вызывают fn сразу
 //bind можно вызвать потом
 // const us1 = {
@@ -116,16 +117,15 @@
 // let runFoo = foo.bind(us2);
 // runFoo();//вызвали потом
 // ----------
-//Задачка
+// Задачка
 // const a ={
 //     age: 23
 // }
 // const us1 ={
 //     age: 10,
 //     sh(){
-//         (
-//             ()=>{
-//                 console.log(this.age);//this будет us1
+//         (()=>{
+//         console.log(this.age);//this будет us1
 //             }
 //         ).call(a);
 //     }
@@ -144,17 +144,17 @@
 //         console.log(this.age);//this будет a, и больше привязывать контекст не будет
 //     }
 // }
-// us1.sh.bind(a).call(b);//Привязывает контекст один раз
-// us1.sh.call(b).bind(a);//вернет undefined так как fn sh ничего не возвращает, а bind возвращает новую fn
+// // us1.sh.bind(a).call(b);//Привязывает контекст один раз
+// // us1.sh.call(b).bind(a);//вернет undefined так как fn sh ничего не возвращает, а bind возвращает новую fn
 
-//4 - конструктор возвращает new {}
+//4 - конструктор возвращает new {} ============================================
 // function Us(name){
 //     //this ->{}
 //     this.name = name//{name:name}
 //     //return this ->{}
 // }
 // const use = new Us('Alex');//->{name: 'Alex'}
-// console.log(use);
+// console.log(use.name);
 
 
 //Задачи -----------------------------------------
@@ -168,7 +168,6 @@
 // const call = (function (){
 //     obj.logM()
 // }).bind(obj);
-//
 // setTimeout(call, 1000);
 //---------------
 // const obj ={
@@ -179,7 +178,7 @@
 // }
 // const call = (function (){
 //     obj.logM()
-// }).bind(obj);
+// }).bind(obj);//Bind тут не работает
 // setTimeout(call, 1000);
 //----------------------
 // const obj ={
@@ -190,23 +189,22 @@
 //     }
 // }
 // setTimeout(obj.logM, 1000);
-// //Обьяснение пример
-// // function setTimeouts(cb){
-// //     //.....проходит время
-// //     cb();
-// // } то же самое что написать
-// // let foo = obj.logM;
-// // foo();
+// // Обьяснение пример
+// function setTimeouts(cb){
+//     //.....проходит время
+//     cb();
+// } /*то же самое что написать*/
+// let foo = obj.logM;
+// foo();
 //как пофиксить допустим задачу выше ------
 // const obj ={
 //     message: 'Hello Word!',
 //     logM(){
-//         console.log(this.message);//this = undefined, потому что в setTimeout мы передаем не вызов метода
-//         //у обьекта а ссылку на fn, получается logM();
+//         console.log(this.message);
 //     }
 // }
-// // setTimeout(()=>obj.logM(), 1000);
-// //или привязать контекст
+// setTimeout(()=>obj.logM(), 1000);
+// // или привязать контекст
 // setTimeout(obj.logM.bind(obj), 1000);
 //-------------------------
 // const a={
@@ -258,18 +256,17 @@
 //         console.log(this.name);
 //     }
 // }
-//
 // function A(name) {
 //     this.name = name
 //     this.getName = function () {
 //         console.log(this.name);
 //     }
 // }
-//
-// const aConstr = A.bind(c);
-// const a = new aConstr('a');
-//по другому в одну строчку, более наглядно
-// const a =new (A.bind(c))('a');
+// // const aConstr = A.bind(c);
+// // const a = new aConstr('a');
+// // a.getName()
+// //по другому в одну строчку, более наглядно
+// const a = new (A.bind(c))('a');
 // a.getName();
 //
 // function B() {
@@ -278,6 +275,12 @@
 // const b = B.call(c);//fn биндим обьект с/ this = c.name --->'c'
 // b.getName();
 //-------- c обьектом c ----------
+// const c = {
+//     name: 'c',
+//     getName() {
+//         console.log(this.name);
+//     }
+// }
 // function B(name){
 //     this.name = name
 //     return this
@@ -379,10 +382,6 @@
 //     }
 // }
 // console.log(b.get());
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 //global scope в chrome это window
 //fn; fn =>; arrow fn
@@ -392,25 +391,24 @@
 
 // const car = {
 //     color: 'red',
-//     swow()=>{
+//     swow:()=>{
 //         console.log(this.color);
 //     }
 // }
 // car.swow();//ПОлучим undefaineed, так как стрелочная fn выпрыгиват в global - в данном случаии this берется у
 // window, а у win нет св-в color,
-
+// ---------------------------------------
 // const car = {
 //     color: 'red',
 //     swow(){
 //         console.log(this.color);
 //     }
 // }
-// // const  present = car.swow();//переменной Сдесь же передаем ссылку на наш метод,
-// // // а потом ее вызываем не так ка кнадо для this)))
-// // present();//undefined так как вызываем в global scope
+// const  present = car.swow;//переменной Сдесь же передаем ссылку на наш метод,а потом ее вызываем не так как надо для this)))
+// present();//undefined так как вызываем в global scope
 // const newCar = car.swow.bind(car);
 // newCar();//ok
-
+// ------------------------------------------
 // const car = {
 //     color: 'red',
 //     swow() {
@@ -425,7 +423,7 @@
 //     }
 // }
 // car.swow();
-
+// -------------------------------------------
 // class Man {
 //     constructor(props) {
 //         this.props = props;
@@ -443,7 +441,7 @@
 // const man1 = new Man({age: 10}); //This у нас будет переданным обьектом
 // //render вызывется справа, this = Man, потом this.log() = будет являться тем this что в render()
 // man1.render();//Будет 10
-
+// ---------------------------------------------
 // const man = {
 //     _counter: {
 //         value: 0,
