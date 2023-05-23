@@ -627,3 +627,50 @@
 //                 result > 30 ? 'Obese' : '';
 // }
 // console.log(bmi(85, 18.5))
+
+// function derive(coefficient,exponent) {
+//     return `${coefficient * exponent}x^${exponent - 1}`
+// }
+//
+// console.log(derive(7,8));
+
+// function integrate(coefficient, exponent) {
+//     let resExponent = exponent + 1;
+//     return `${coefficient / resExponent}x^${resExponent}`
+// }
+// console.log(integrate(3,2))
+
+// let arr = [1, 1, 2, 3, 1, 2, 3, 4];
+// let arr2 = [1, 3];
+// Array.prototype.remove_ = function (integer_list, values_list) {
+//     //your code here
+//     for (let i = 0; i < values_list.length; i++) {
+//         for (let j = 0; j <= integer_list.length; j++) {
+//             values_list[i] === integer_list[j] ? integer_list = integer_list.filter(e => e !== values_list[i]) : integer_list;
+//         }
+//     }
+//     return integer_list;
+// }
+// console.log(arr.remove(arr,arr2))
+// let arr = [1, 1, 2, 3, 1, 2, 3, 4];
+// let arr2 = [1, 3];
+// let arr = [1, 1, 2, 3, 1, 2, 3, 4, 4, 3, 5, 6, 7, 2, 8];
+// let arr2 = [1, 3, 4, 2];
+//
+// function remove(integer, value) {
+//     for (let i = 0; i < value.length; i++) {
+//         for (let j = 0; j <= integer.length; j++) {
+//             integer = integer.filter(e=>e !== value[i]);
+//         }
+//     }
+//     return integer;
+// }
+// console.log(remove(arr, arr2))
+// I             1
+// V             5
+// X             10
+// L             50
+// C             100
+// D             500
+// M             1000
+
