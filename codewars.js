@@ -674,3 +674,132 @@
 // D             500
 // M             1000
 
+//Дубликат ----------------------------------------
+// let a = [1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]
+// let a = [0, 1, 2, 2, 2, 2, 3, 4, 5]
+// let a = [1, 2, 3, 4, 3]
+// let a = [1, 2, 3, 3, 2, 1]
+// let a = ['zut', 'alors', 1, 2, 4, 4, 3, 3, '1', 5, 3, 'zut']
+// let a = [1, 2, 1, 2, 1, 2, 1]
+// function duplicates(arr) {
+//     let arrSort = [];
+//     for (let j = 0; j < arr.length; j++) {
+//         for (let i = 0; i < arr.length - 1; i++) {
+//             if (arr[j] === arr[i + 1 + j]) {
+//                 arrSort = [...arrSort, arr[j]]
+//                 break;
+//             }
+//         }
+//     }
+//     for (let j = 0; j < arrSort.length - 1; j++) {
+//         for (let k = 0; k < arrSort.length - 1 - j; k++) {
+//             if (arrSort[k] > arrSort[k + 1]) {
+//                 let znach = arrSort[k];
+//                 arrSort[k] = arrSort[k + 1];
+//                 arrSort[k + 1] = znach;
+//             }
+//         }
+//
+//     }
+//     let result = []
+//     for (let l = 0; l <= arrSort.length; l++) {
+//         if (arrSort[l] !== arrSort[l + 1]) {
+//             result = [...result, arrSort[l]];
+//         }
+//     }
+//     return result.reverse();
+// }
+// console.log(duplicates(a));
+// ---------------------------------------
+// function findDuplicates(arr) {
+//     return [...new Set(arr.filter((item, index) => arr.indexOf(item) !== index))]
+// }
+// console.log(findDuplicates(a));
+// 2. Использование Set.prototype.has() функция --------------------------------
+// Кроме того, для повышения производительности вы можете использовать ES6. Установить структуру данных для эффективной фильтрации массива.
+//
+//     Следующее решение находит и возвращает дубликаты, используя has() метод. Это работает, потому что каждое значение в наборе должно быть уникальным.
+//     function findDuplicates(arr) {
+//     const distinct = new Set(arr);        // для повышения производительности
+//     const filtered = arr.filter(item => {
+//         // удаляем элемент из набора при первой же встрече
+//         if (distinct.has(item)) {
+//             distinct.delete(item);
+//         }
+//         // возвращаем элемент при последующих встречах
+//         else {
+//             return item;
+//         }
+//     });
+//
+//     return [...new Set(filtered)]
+// }
+// const arr = [ 5, 3, 4, 2, 3, 7, 5, 6 ];
+// const duplicates = findDuplicates(arr);
+// console.log(duplicates);
+
+//REDUCER
+// let nums = [0, 4, 6, 8, 8, 8, 5, 5, 7]
+// function setReducer(input) {
+//     // code here
+//     if(input.length === 1) return input[0]
+//     let newInput = []
+//     for(let i = 0,count = 1; i < input.length; i++){
+//         if(input[i] === input[i+1]){
+//             count +=1
+//         }else{
+//             newInput.push(count)
+//             count = 1
+//         }
+//     }
+//
+//     console.log(newInput)
+//     return setReducer(newInput)
+// }
+// /*
+// [0, 4, 6, 8, 8, 8, 5, 5, 7]
+// 1 1 1 3 2 1
+// 3 1 1 1
+// 3 3
+// 2
+// */
+//
+// setReducer(nums);
+
+//age
+// function age(x, y) {
+//     //your code here
+//     let ageMultiplierJuly, ageBr, ageJuly;
+//     ageBr = (x /(y - 1));
+//     ageMultiplierJuly = ageBr * y;
+//     ageJuly = ageBr + x;
+//     if (ageJuly !== ageBr)return Math.round(ageMultiplierJuly);
+//     return 0;
+// }
+// console.log(age(-11,0.25));
+
+// let a = ["flower","flow","flight"]
+// // let a = ["dog","racecar","car"]
+// let longestCommonPrefix = function(strs) {
+//     let prefix = strs.reduce((acc, str) => str.length < acc.length ? str : acc);
+//     console.log(prefix)
+//     for (let str of strs) {
+//         while (str.slice(0, prefix.length) !== prefix) {
+//             prefix = prefix.slice(0, -1);
+//         }
+//     }
+//     return prefix;
+// };
+//
+// console.log(longestCommonPrefix(a));
+
+// let a = [1, 2, 3]
+// Array.prototype.last = function () {
+//     if (this.length) {
+//         return this[this.length-1]
+//     } else {
+//         return -1;
+//     }
+// };
+// console.log(a.last())
+
