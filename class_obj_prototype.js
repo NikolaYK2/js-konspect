@@ -20,7 +20,7 @@
 //     age= 31;
 //     someFn =()=>{}
 //     someFn2 = function (){}
-// //----------------------------------------------------------------
+//
 //     constructor(name) {
 //         //По симантике это то же самое что Пишется
 //         // function User(name){
@@ -100,7 +100,7 @@
 //     }
 // }
 // todoApi.getTodos()
-// //В виде class--------------
+// //В виде class---------------------------------------------------------------------
 // class TodoApi{
 //     // getTodos(){}//Допустим экземпляр(const todoApi = new TodoApi()) будет один этой апишки
 //     //Можно экземпляр не создавать а сделать метод статическим
@@ -191,7 +191,8 @@
 //         return this.#name = value;
 //     }
 // }
-
+// const user = new User();
+// console.log(user.name = 'Nik')
 
 // __PROTO__ ==================================================================
 // // get __proto__: f __proto__() - это функция
@@ -282,6 +283,7 @@
 //         this.name = 'Car'
 //     }
 // }
+//
 // class Ford extends Car {
 //     constructor(model) {
 //         //Очередь вызова - 1
@@ -348,6 +350,7 @@
 // }
 // const ford = new Ford('Mondeo')
 // ford
+
 //МНОЖЕСТВЕННОЕ НАСЛЕДОВАНИЕ ------
 // class Car {
 //     model = 'Default'
@@ -390,7 +393,7 @@
 //     class {constructor(n) {this.name = n}}
 // ];
 // arr.forEach(c=>{
-//     const e = new c()
+//     const e = new c('hi')
 //     console.log(e);
 // })
 // function get(){

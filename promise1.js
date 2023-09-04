@@ -31,6 +31,7 @@
 //     });
 
 //THEN AXIOS =====================================================================
+// //go axios!!!!
 // axios.get('it-kamasutra')
 //     .then(res => {
 //         console.log(res.data)
@@ -67,9 +68,10 @@
 //         axios.get('microsoft'),
 //     ]
 //
-//     const arr = await Promise.all(promise);
-//     console.log(arr.map(e => e.data))
-//     // Promise.all([p1, p2, p3]).then(res=>console.log(res.map(e=>e.data)));
+//     // const arr = await Promise.all(promise);
+//     // console.log(arr.map(e => e.data))
+//
+//     // Promise.all([promise[0], promise[1], promise[2]]).then(res=>console.log(res.map(e=>e.data)));
 // }
 // requestOnMoment();
 // --------------------------------------------------
@@ -155,18 +157,19 @@
 // 19) А это пример из жизни:
 // Нужно в камасутру отправить суммарное кол-во вакансий значение, которое получится в ответах от компании microsoft и google
 
-// let prMic = api.getVacanciesCountFromMicrosoft()
-//     .then(res => {
-//         console.log(`mic ${res.data.vacancies}`);
-//         return res.data.vacancies
-//     });
-//
-// let prGoogle = api.getVacanciesCountFromGoogle()
-//     .then(vacancies => {
-//         console.log(`google ${vacancies}`);
-//         return vacancies
-//     });
-//
+let prMic = api.getVacanciesCountFromMicrosoft()
+    .then(res => {
+        console.log(`mic ${res.data.vacancies}`);
+        return res.data.vacancies
+    });
+
+let prGoogle = api.getVacanciesCountFromGoogle()
+    .then(vacancies => {
+        console.log(`google ${vacancies}`);
+        return vacancies
+    });
+
+//------------------------------------------------------------------
 // let resultAllPr = Promise.all([prMic, prGoogle]);
 // resultAllPr.then((res) => {
 //     let mic = res[0]/*.data.vacancies*/;

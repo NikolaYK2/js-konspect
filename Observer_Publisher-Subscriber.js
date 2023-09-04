@@ -1,15 +1,15 @@
 //PATTENR архитектурное готовое решение проблем/задач =================================================================
 // // observable - без посредника...
-// // publisher\subscriber - с посредником/publisher-имеет сови eventi/subscriber-передает слушателей подписывая на
+// // publisher\subscriber - с посредником/publisher-имеет свой eventi/subscriber-передает слушателей подписывая на
 // eventi и когда они отрабатываются, запускаются наши слушатели
 //СЛУШАТЕЛИ -ЭТО функции, которые выполняют какое-то конкретное событие
 // // событие всегда в прошедшем времени event = past simple
-//ubscribe(function subscriber(){})-слушатель а в скобках, за чем смотреть будет
+//subscribe(function subscriber(){})-слушатель а в скобках, за чем смотреть будет
 // store.subscribe(function subscriber(){});// событие state изменился(обычно передается функция rerender которая
 // перерисовывает компоненту используя актуальные знаечния Stora)
 // // useSelector() ---> store.subscribe
 // button.addEventListener('click', function subscriber(){});//событие Произошел клик
-// <button onClick={()=>{}}/>//Клик произошел(аналог addEventListener, но как бы в React миру)
+// <button onClick={()=>{}}/>//Клик произошел(аналог addEventListener, но как бы в React мирe)
 // setTimeout(function subscriber(){},1000);//событие -  Прошло время
 // promise.then(function subscriber(){})//событие res ПРОМИС ЗАРЕЗОЛВИЛСЯ || rej
 // //На бэке -----------------------------------------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 // const user2 = new User('Vit');
 // //два однатипных но разных обьекта
 // console.log(user === user2)//false
-// console.log(user.neame === user2.name) //false так как относятся к каждому классу по своему
+// console.log(user.name === user2.name) //false так как относятся к каждому классу по своему
 // console.log(user.state === user2.state) //false так как примитивы
 // console.log(user.render === user2.render)//true так как попадает в протатип и у всех будет один и тот же метод
 // console.log(user.someMethod === user2.someMethod)//false так как относится к классу и каждый раз создается
@@ -23,11 +23,15 @@
 // //1. если это обьект, то он полюбому создан с помощью какого-то класса и __proto__ этого обьекта будет ссылаться на
 // // prototype Этого класса
 //--------------------------------------------------------------
-// class User{}
-// class SuperUser{}
-// const user =new User();
+// class User {
+// }
+//
+// class SuperUser {
+// }
+//
+// const user = new User();
 // console.log(user.__proto__ === User.prototype)//У любого обьекта есть __proto__ потому что созданы
-// с помощью какого-то класса ---------------------------------------
+// // с помощью какого-то класса ---------------------------------------
 // let a = new Object();
 // console.log(a.__proto__ === Object.prototype);
 // ----------------------------------------------------------

@@ -1,6 +1,6 @@
 // ========= TS CLASS ==============================================
 // class User {
-////нужно про типизировать сам класс
+// //нужно про типизировать сам класс
 //     name: string;// Можно поставить значение по default name: string = '...'
 //     age: number;
 //
@@ -12,8 +12,8 @@
 //         return this.name
 //     }
 // }
-//В TS есть модификаторы доступа: public, protected, private | readonly
-//ПОзваляют ограничить права доступа к каким-то методам или св-в
+// // В TS есть модификаторы доступа: public, protected, private | readonly
+// // ПОзваляют ограничить права доступа к каким-то методам или св-в
 // PUBLIC -------------------------------------------------------------
 // class User {
 //
@@ -27,6 +27,7 @@
 //     }
 //
 // }
+//
 // class Nik extends User{
 //     constructor(name:string) {
 //         super(name);
@@ -38,7 +39,7 @@
 // const user = new User('Nik');
 // console.log(user.name);
 //PROTECTED -------------------------------------------------------------
-//Делает все то же самое что Public но запрещает напрямую обращаться к св-в user.name
+// // Делает все то же самое что Public но запрещает напрямую обращаться к св-в user.name
 // class User {
 //
 //     protected name: string;
@@ -63,7 +64,6 @@
 // PRIVATE ------------------------------------------------------------------------
 //все то же самое что protected, только теперь наследники не могут обращаться к св-в
 // class User {
-//
 //     private name: string;//Только для меня, аналог #name
 //
 //     constructor(name: string) {
@@ -83,10 +83,10 @@
 // }
 // const user = new User('Nik');
 // READONLY -------------------------------------------------------------
-// //можно комбинировать с public, protected, private
+// // //можно комбинировать с public, protected, private
 // class User {
 //
-//     public readonly name: string;//Только для меня, аналог #name
+//     public readonly name: string;
 //     // protected readonly name: string;
 //     // private readonly name: string;
 //     //Можно просто написать readonly

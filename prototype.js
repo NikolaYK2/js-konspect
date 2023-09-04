@@ -1,11 +1,47 @@
-// const a ={
-//     inner:{
-//     }
+//proto and prototype - Это св-в обьекта и сами являются почти всегда обьектами
+//class & fn есть prototype - всегда независимый обьект который никогда не будет равен другому типу обьекта
+//prototype есть толкьо у fn обьявленных словом function либо у class у =()=> нет
+// let a = {value: 18}
+// let b = {age: a}
+// let c = a
+// //а - это только один обьект а b,c уже ссылки на этот обьект а
+//     // Это означает что a === b.a and c
+// ------------------------------------
+// //__proto__ - есть у всех обьектов
+// let man = {}//man.__proto__
+// let man1 = []//man1.__proto__
+// let man2 = 18//примитив, но если мы к нему обратимся как к обьекту, поставим точко, то у енго тоже будет __proto__,
+// // так же и строка
+// function sub() {}//sub.__proto__
+// let like = function sub1() {}//sub.__proto__
+// const sub2 = () => {}//sub.__proto__
+// class You{}//You.__proto__
+// let bol = true//Как и с примитивами
+// ----------------------------------------------------
+// let man = {}
+// let man2 = {}
+// let bol = true
+// console.log(man.__proto__ === man2.__proto__)//Хоть и разные обьекты но proto у них будут равны, так же и массивы и
+// // примитивы и fn
+// //Случаи когда proto не равны, это когда разные по типу обьекты, например
+// console.log(man.__proto__ === bol.__proto__)
+//Любой обьект в js создается при помощи класов или функций конструктор ---------------------
+// let promise = new Promise(()=>{})//new Promise
+// let man ={}//new Object
+// let man1 =[]//new Array
+// let age = 19//не создается обьект, но если обратмся через точку ---> new Number и т.д.
+// // function, class, expresion fn  //new Function
+// class You{}//new Fn --> сам класс создаем через fn
+// let chanel = new You()//new You ---> а уже chanel создается через new You
+
+
+// const a = {
+//     inner: {}
 // }
-// const b =a.inner
+// const b = a.inner
 // //два обьекта a and a.inner
 // //на a.inner две ссылки a.inner and b
-// const b ={
+// const b = {
 //     inner: a.inner
 // }
 // //две ссылки на обьект это a.inner and b.inner
@@ -31,16 +67,16 @@
 // const baseUSer = {
 //     baseName: 'Base'
 // }
-// const user ={//Этот обьект называется прототипом, потому что на него есть скрытая ссылка [{PROTOTYPE}]
-//     show(){
+// const user = {//Этот обьект называется прототипом, потому что на него есть скрытая ссылка [{PROTOTYPE}]
+//     show() {
 //         console.log(this.name);
 //     }
 // }
-// const alex ={
-//     name:'Alex',
+// const alex = {
+//     name: 'Alex',
 // }
-// const hanna ={
-//     name:'Hanna',
+// const hanna = {
+//     name: 'Hanna',
 // }
 // alex.__proto__ = user;
 // hanna.__proto__ = user;
@@ -81,7 +117,7 @@
 //     //return this
 // }
 // const alex = new User('Alex');//{name: 'Alex'}
-// function Users(){}//У двух fn есть одинаковое св-в prototype: {constructor: User}
+// function Users(){}//У двух fn есть одинаковое св-в prototype: {constructor: Users}
 // function Animal(){}//prototype: {constructor: Animal}
 // // У стрелочных функций такого св-ва нет
 // // У всех обычных функци есть св-в prototype: которое является обьектом и у которого есть св-в constructor:
@@ -114,7 +150,7 @@
 // jon.__proto__ = userPrototype;
 // const arr = [alex, hanna, jon];
 // console.log(arr.map(e=>e.show()));
-//refactor много повторяющегос кода ===============
+//REFACTOR много повторяющегос кода ======================================================================
 // const userPrototype ={//Этот обьект он уже как бы существует /prototype
 //     show(){
 //         console.log(this.name);
@@ -158,7 +194,7 @@
 //     }
 // }
 // // const alex = new Users('Alex');
-// // const hanna = new Users('Alex');
+// // const hanna = new Users('hanna');
 // const alex ={
 //     name:'alex'
 //     // [[Prototyype]]: Users.prototype
@@ -167,13 +203,14 @@
 //     name:'hanna'
 //     // [[Prototyype]]: Users.prototype
 // }
-// --------------------------------------------
+// не выделять --------------------------------------------
 //ЧТо бы узнать куда указывает x.proto, нужно узнать какой тип данных у x и всегда попадем в constructor этого x
 // x.__proto__----> xConstructor.prototype
 // {}.__proto__ ----> будет ссылаться на Object.prototype
 // m.__proto__ ----> Map.prototype
 // Array.prototype.__proto__ ---> Object.prototype - потому что мы у Array берем обьект prototype, a у него __proto__,
 // а конструктор обьекта это Object
+
 // Function.prototype.__proto__ ---> Object.prototype
 // (5).__proto__ --> Number.prototype
 // String.prototype.__proto__ ---> Object.prototype

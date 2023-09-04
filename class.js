@@ -93,24 +93,24 @@
 
 //НАСЛЕДОВАНИЕ =====================================================================================================
 // тот класс что выше изменять нельзя, можно только расширить, во избежании поломки кода старого
-class User {
-    #name = ''
-    constructor(name, site, dob) {
-        this.#name = name;
-        this.site = site;
-        this.dateOfBirth = dob;
-    }
-    get name(){
-        return this.#name
-    }
-    set name(value) {
-        if (value === 'Igor') throw new Error('Такое имя не пойдет')
-        this.#name = value;//меняем на то что прилетит Value
-    }
-    hello() {
-        console.log(`i am ${this.#name} ${this.site} ${this.dateOfBirth}`)
-    }
-}
+// class User {
+//     #name = ''
+//     constructor(name, site, dob) {
+//         this.#name = name;
+//         this.site = site;
+//         this.dateOfBirth = dob;
+//     }
+//     get name(){
+//         return this.#name
+//     }
+//     set name(value) {
+//         if (value === 'Igor') throw new Error('Такое имя не пойдет')
+//         this.#name = value;//меняем на то что прилетит Value
+//     }
+//     hello() {
+//         console.log(`i am ${this.#name} ${this.site} ${this.dateOfBirth}`)
+//     }
+// }
 // class Coder extends User {//Coder extends-расширяет class User
 //     //Хоти добавить еще какую-то технологию например this.tech для этого вызываем constructor
 //     constructor(name, site, dob, tech) {//На самом деле является наследникам User и что бы сконкструировать себя,
@@ -134,7 +134,7 @@ class User {
 //
 // class Haker extends Coder {
 //     constructor(a,b,c,d) {
-//         super();
+//         super();//то есть мы унаследуем все от Coder но делаем свой конструктор
 //         this.name = 'XXX'//Делаем хакеру свой конструктор
 //         this.tech = 'XXXX'
 //     }
@@ -148,8 +148,8 @@ class User {
 // hak.code()
 
 //ПОЛИМОРФИЗМ ============================================================================================
-//У всех один и тот же метод как бы показать сообщение, но каждый обьект что-то делает по своему потому что по сути они
-// все экземпляры одного обьекта
+// // У всех один и тот же метод как бы показать сообщение, но каждый обьект что-то делает по своему потому что по сути они
+// // все экземпляры одного обьекта
 // const users = [u1, coder, hak]
 // users.forEach(u=>u.hello())
 
